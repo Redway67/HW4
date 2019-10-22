@@ -1,5 +1,6 @@
+# МОДУЛЬ 3
 """
-МОДУЛЬ 3
+
 Программа "Личный счет"
 Описание работы программы:
 Пользователь запускает программу у него на счету 0
@@ -33,8 +34,39 @@
 
 Для реализации основного меню можно использовать пример ниже или написать свой
 """
+account = 0
+purchases = {}
+
+
+def first_choice():
+    add_sum = int(input('Ввести сумму на сколько пополнить счет:'))
+    return add_sum
+
+
+def second_choice(sum_account):
+    sum_purchase = int(input('Ввести сумму покупки:'))
+    if sum_purchase <= sum_account:
+        purchase = input('Ввести название покупки:')
+        purchases[purchase] = sum_purchase
+    else:
+        print('   НЕДОСТАТОЧНО СРЕДСТВ НА СЧЕТЕ!!!')
+        sum_purchase = 0
+    return sum_purchase
+
+
+def third_choice():
+    if bool(purchases):
+        print('   ПОКУПКИ:')
+        for key in purchases:
+            print(f'   {key} , цена: {purchases[key]}')
+    else:
+        print('   ПОКУПОК НЕТ !!!')
+    return
+
 
 while True:
+    print(f'   НА СЧЕТУ: {account} р.')
+
     print('1. пополнение счета')
     print('2. покупка')
     print('3. история покупок')
@@ -42,11 +74,11 @@ while True:
 
     choice = input('Выберите пункт меню')
     if choice == '1':
-        pass
+        account += first_choice()
     elif choice == '2':
-        pass
+        account -= second_choice(account)
     elif choice == '3':
-        pass
+        third_choice()
     elif choice == '4':
         break
     else:
