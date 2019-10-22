@@ -30,7 +30,7 @@ def hello_world():
     print('Hello, World!')
     print()
     print(separator('#', 10))
-    return None
+    return
 
 
 hello_world()
@@ -42,7 +42,7 @@ def hello_who(who='World'):
     print(f'Hello,{who}!')
     print()
     print(separator('#', 10))
-    return None
+    return
 
 
 hello_who()
